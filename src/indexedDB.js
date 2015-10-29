@@ -132,7 +132,40 @@ function indexedDBCheck() {
 	}
 	else {
 		return true;
+	}	
+}
+
+function getCompany(options) {
+	if (typeof options === 'undefined') { return false; }
+	
+	var db;
+	var requestOpen = window.indexedDB.open("DataTable");
+	requestOpen.onsuccess = function(event)
+	{
+		var idb = event.target.result;
+		var trans = idb.transaction('company', 'readonly');
+		var store = trans.objectStore('company');
+	 
+		// get
+		var requestGet = store.get(options.key);
+	 
+		requestGet.onsuccess = function(event) {
+		    console.log('Company retreived.' + event);
+		    return event.target.result;
+		}
+		
+	 	console.log('aSync failure');
+	 	
+		requestGet.onfailure = function(event) {
+		    // failed
+		    console.log('Company FAILED TO ADD' + event);
+		}
 	}
+	requestOpen.onerror = function(event) {
+		console.log('error getting company');
+	}
+	
+	
 	
 }
 
