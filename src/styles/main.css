@@ -1,6 +1,6 @@
 #bodyToolBar {
-	background-color: #336699;
-	width: 25%;
+	background-color: #030C22;
+	width: 33%;
 	height: 10%;
 	border-style: solid;
 }
@@ -8,3 +8,17 @@
 #bodyContain {
 	height:100vh;
 }
+
+.appMenuSmall {
+	border-style: solid;
+}
+
+.appMenuLarge {
+	border-style: solid;
+}
+
+#appMenuPop {
+	border-style: solid;
+}
+
+
